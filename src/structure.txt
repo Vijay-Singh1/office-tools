@@ -1,0 +1,40 @@
+src/
+├── app/
+│   ├── store.ts                      # Redux store setup
+│   ├── rootReducer.ts                # Root reducer combining all slices
+│   ├── App.tsx                       # Main App component
+│   ├── index.tsx                     # Entry point for the app
+│   ├── routes.tsx                    # Centralized route definitions with React Router v6
+│   └── types/                        # Global types and interfaces
+│       └── index.ts
+├── modules/
+│   ├── imageEditor/                  # Image Editor module
+│   │   ├── components/               # Components specific to the Image Editor
+│   │   │   ├── Toolbar.tsx           # A sub-component for the toolbar
+│   │   │   └── Canvas.tsx            # Another sub-component for the canvas
+│   │   ├── features/                 # Redux slices and logic
+│   │   │   └── imageEditorSlice.ts   # Redux slice for image editor
+│   │   ├── pages/                    # Page components for the Image Editor
+│   │   │   ├── ImageEditorPage.tsx   # Main page component for Image Editor
+│   │   │   └── EditImagePage.tsx     # Sub-page component for editing a specific image
+│   │   ├── hooks/                    # Custom hooks specific to Image Editor
+│   │   │   └── useImageEditor.ts     # Example custom hook
+│   │   ├── utils/                    # Utility functions specific to Image Editor
+│   │   │   └── imageEditorUtils.ts
+│   │   └── routes.tsx                # Route definitions for Image Editor module
+├── common/                           # Shared components and utilities
+│   ├── components/
+│   │   └── Header.tsx
+│   ├── hooks/
+│   │   └── useToggle.ts
+│   ├── utils/
+│   │   └── apiUtils.ts
+│   └── types.ts
+├── assets/                           # Static assets like images, fonts, etc.
+├── styles/                           # Global and shared styles
+│   ├── base.css
+│   └── variables.css
+├── services/                         # API services and other external services
+│   └── apiService.ts
+└── config/                           # Configuration files (e.g., environment, constants)
+    └── envConfig.ts

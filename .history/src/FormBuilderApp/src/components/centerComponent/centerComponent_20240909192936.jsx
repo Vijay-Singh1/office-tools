@@ -1,0 +1,31 @@
+import { Box } from '@mui/material'
+import React from 'react'
+import FormSidebar from '../sidebar/Sidebar'
+
+const sideBarItem = [
+    {
+      text :"Docs",
+      icon :<Home/>
+    },
+    {
+      text :"Docs",
+      icon :<Home/>
+    },
+    {
+      text :"Docs",
+      icon :<Home/>
+    },
+    {
+      text :"Docs",
+      icon :<Home/>
+    },
+  ]
+const CenterComponent = () => {
+  return (
+    <Box flex={4}>
+      <FormSidebar items = {sideBarItem}/>
+    </Box >
+  )
+}
+
+export default CenterComponent
