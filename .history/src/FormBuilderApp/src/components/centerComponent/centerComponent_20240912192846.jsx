@@ -6,9 +6,9 @@ import { Home } from '@mui/icons-material'
 
 const CenterComponent = () => {
   return (
-    <Box flex={4} bgcolor={"white"}   >
-      <Stack direction={'column'} spacing={6}>
-        <Box bgcolor={"white"} flex ={1} display={"flex"} justifyContent={"center"} >Header</Box>
+    <Box flex={4} bgcolor={"green"}>
+      <Stack direction={'column'} spacing={2}>
+        <Box bgcolor={"blue"} flex ={1} display={"flex"} justifyContent={"center"} >Header</Box>
         <Box>Body</Box>
       </Stack>
     </Box >

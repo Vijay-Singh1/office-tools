@@ -10,8 +10,8 @@ import RightBar from '../components/RightBar/RightBar';
 
 const CreateForm : React.FC = () => {
   return (
-    <Box  flex ={1}    >
-      <Stack direction="row" spacing={4}  justifyContent={"space-between"} minHeight="calc(100vh - 60px)">
+    <Box  flex ={1} bgcolor={"black"}   >
+      <Stack direction="row" spacing={2}  justifyContent={"space-between"} minHeight="calc(100vh - 60px)">
       <FormSidebar/>
       <CenterComponent/>
       <RightBar/>

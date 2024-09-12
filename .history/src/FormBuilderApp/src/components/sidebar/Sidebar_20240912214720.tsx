@@ -3,7 +3,7 @@
 
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Radio } from '@mui/material'
 import React from 'react'
-import { ArrowDropDownCircle, CheckBox, FormatColorText, HMobiledata, Home, InsertPageBreak, PhoneAndroid, RadioButtonChecked, SmartButton } from '@mui/icons-material';
+import { ArrowDropDownCircle, CheckBox, FormatColorText, HMobiledata, Home, InsertPageBreak, PhoneAndroid, RadioButtonChecked } from '@mui/icons-material';
 import { SidebarItem } from '../../pages/formTypes';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import PasswordIcon from '@mui/icons-material/Password';
@@ -65,14 +65,14 @@ const sideBarItem :SidebarItem[] = [
     icon :<InsertPageBreak/>
   },
   {
-    text :"Button",
-    icon :<SmartButton/>
+    text :"Input",
+    icon :<CreateIcon/>
   },
 ]
 
 const FormSidebar:React.FC<SidebarItem> = () => {
   return (
-    <Box flex={1} overflowY="scroll" bgcolor = "white">
+    <Box bgcolor="lightBlue" flex={1} overflowY="scroll">
       <List>
       {sideBarItem?.map((item, idx) =>(
         <ListItem disablePadding key={idx}>

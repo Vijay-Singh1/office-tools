@@ -8,7 +8,7 @@ const App: React.FC = () => {
   
   return (
  
-      <Stack direction="column" bgcolor = "#EEEDEB">
+      <Stack direction="column" bgcolor = "#F5F5F5">
         <Appbar/>
       <Box>
         <Outlet />
