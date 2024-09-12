@@ -1,10 +1,8 @@
-
-
 import * as React from 'react';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'; // <-- Use MuiAppBar here for clarity
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,6 +18,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import {  Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -105,9 +108,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const Sidebar :React.FC =() =>{
+const Sidebar: React.FC = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [nestedOpen, setNestedOpen] = React.useState({ 0: false, 1: false });
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -115,6 +119,15 @@ const Sidebar :React.FC =() =>{
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleNestedClick = (index: number) => {
+    setNestedOpen((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+  const handleClick = (element: string) => {
+    if(element === "Create Form"){
+      console.log(element)
+    }
   };
 
   return (
@@ -128,9 +141,7 @@ const Sidebar :React.FC =() =>{
             onClick={handleDrawerOpen}
             edge="start"
             sx={[
-              {
-                marginRight: 5,
-              },
+              { marginRight: 5 },
               open && { display: 'none' },
             ]}
           >
@@ -149,103 +160,70 @@ const Sidebar :React.FC =() =>{
         </DrawerHeader>
         <Divider />
         <List>
-          {['Form Builder', 'Image Editor', 'Docs Creator', 'SpreadSheet'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
-                  open
-                    ? {
-                        justifyContent: 'initial',
-                      }
-                    : {
-                        justifyContent: 'center',
-                      },
-                ]}
-              >
-                <ListItemIcon
+          {['Form Builder', 'Image Editor'].map((text, index) => (
+            <>
+              <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  onClick={() => handleNestedClick(index)}
                   sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: 'center',
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: 'auto',
-                        },
+                    { minHeight: 48, px: 2.5 },
+                    open ? { justifyContent: 'initial' } : { justifyContent: 'center' },
                   ]}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={[
-                    open
-                      ? {
-                          opacity: 1,
-                        }
-                      : {
-                          opacity: 0,
-                        },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
+                  <ListItemIcon
+                    sx={[
+                      { minWidth: 0, justifyContent: 'center' },
+                      open ? { mr: 3 } : { mr: 'auto' },
+                    ]}
+                  >
+                    {index % 2 === 0 ? <ListAltIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={[open ? { opacity: 1 } : { opacity: 0 }]}
+                  />
+                  {nestedOpen[index] ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+              </ListItem>
+              <Collapse in={nestedOpen[index]} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {['Create Form', 'Open Form'].map((subtext, idx) => (
+                    <Link to ={`/${subtext.split(" ")[0]}-${subtext.split(" ")[1]}`}>
+                    <ListItemButton key={idx} sx={{ pl: 4 }} >
+                      <ListItemIcon>
+                      <ListAltIcon/>
+                      </ListItemIcon>
+                      <ListItemText primary={subtext} />
+                    </ListItemButton>
+                    </Link>
+                  ))}
+                </List>
+              </Collapse>
+            </>
           ))}
         </List>
         <Divider />
+        {/* Other Items */}
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+          {['Docs Creator', 'SpreadSheet'].map((text, index) => (
+            <ListItem key={index} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
-                  open
-                    ? {
-                        justifyContent: 'initial',
-                      }
-                    : {
-                        justifyContent: 'center',
-                      },
+                  { minHeight: 48, px: 2.5 },
+                  open ? { justifyContent: 'initial' } : { justifyContent: 'center' },
                 ]}
               >
                 <ListItemIcon
                   sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: 'center',
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: 'auto',
-                        },
+                    { minWidth: 0, justifyContent: 'center' },
+                    open ? { mr: 3 } : { mr: 'auto' },
                   ]}
                 >
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
                 <ListItemText
                   primary={text}
-                  sx={[
-                    open
-                      ? {
-                          opacity: 1,
-                        }
-                      : {
-                          opacity: 0,
-                        },
-                  ]}
+                  sx={[open ? { opacity: 1 } : { opacity: 0 }]}
                 />
               </ListItemButton>
             </ListItem>
@@ -254,36 +232,10 @@ const Sidebar :React.FC =() =>{
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {/* <Typography sx={{ marginBottom: 2 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography sx={{ marginBottom: 2 }}>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography> */}
+        {/* Your Main Content Here */}
       </Box>
     </Box>
   );
-}
+};
 
-export default Sidebar
+export default Sidebar;
