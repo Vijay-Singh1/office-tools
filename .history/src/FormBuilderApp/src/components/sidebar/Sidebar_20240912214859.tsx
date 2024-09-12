@@ -72,7 +72,7 @@ const sideBarItem :SidebarItem[] = [
 
 const FormSidebar:React.FC<SidebarItem> = () => {
   return (
-    <Box flex={1} overflowY="scroll" bgcolor = "white">
+    <Box bgcolor="lightBlue" flex={1} overflowY="scroll">
       <List>
       {sideBarItem?.map((item, idx) =>(
         <ListItem disablePadding key={idx}>

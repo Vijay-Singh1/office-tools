@@ -25,7 +25,7 @@ const StyledNavLink = styled(NavLink)(({theme})=>({
 
 const Appbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }} height={"60px"} position="sticky" top={0} zIndex={1000}>
+    <Box sx={{ flexGrow: 1 }} height={"60px"} position="sticky" top={0}>
     <AppBar position='static' >
         <StyledToolBar>
         <Typography variant='subtitle1' sx={{display : {sm : "block", xs : "none"}}}>OFFICE TOOLS</Typography>
