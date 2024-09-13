@@ -86,7 +86,9 @@ const Draggable = ({ icon , text, id, label }) => {
   return (
   
       <ListItem disablePadding ref={setNodeRef} style={style} {...listeners} {...attributes} 
-       >
+      sx={{'&:hover': {
+            bgcolor: 'primary.dark',
+          }}} >
           <ListItemButton  >         
             <ListItemIcon>
               {icon}

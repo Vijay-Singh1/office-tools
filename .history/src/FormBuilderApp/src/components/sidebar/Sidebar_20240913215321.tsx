@@ -70,47 +70,43 @@ const sideBarItem :SidebarItem[] = [
   },
 ]
 
-const Draggable = ({ icon , text, id, label }) => {
+const Draggable = ({ id, label }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id,
   });
 
   const style = {
     transform: `translate3d(${transform?.x}px, ${transform?.y}px, 0)`,
-    // padding: '8px',
-    // border: '1px solid #ccc',
+    padding: '8px',
+    border: '1px solid #ccc',
     marginBottom: '8px',
     cursor: 'grab',
   };
 
   return (
-  
-      <ListItem disablePadding ref={setNodeRef} style={style} {...listeners} {...attributes} 
-       >
-          <ListItemButton  >         
-            <ListItemIcon>
-              {icon}
-            </ListItemIcon>
-            <ListItemText >{text}</ListItemText>
-            
-          </ListItemButton>
-        </ListItem>
-   
+    <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
+      {label}
+    </div>
   );
 };
 
 
 const FormSidebar:React.FC<SidebarItem> = () => {
   return (
-    <Box 
-    width="250px" 
-    overflowY="auto" 
-    bgcolor="white"
-    border="1px solid red"
-    sx={{ height: '100%' }}  >
+    <Box flex={1} overflowY="scroll" bgcolor = "white">
       <List>
       {sideBarItem?.map((item, idx) =>(
-        <Draggable key={idx}  icon = {item.icon}  text  = {item.text} id={idx}  />
+        <Draggable id="input" label="Input Field" >
+        <ListItem disablePadding key={idx}>
+          <ListItemButton component = "a" href='/form-builder'>         
+            <ListItemIcon>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText >{item.text}</ListItemText>
+            
+          </ListItemButton>
+        </ListItem>
+        </Draggable>
       ))}
       </List>
     </Box>

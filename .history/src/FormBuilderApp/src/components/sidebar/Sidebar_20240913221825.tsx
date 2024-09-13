@@ -85,8 +85,7 @@ const Draggable = ({ icon , text, id, label }) => {
 
   return (
   
-      <ListItem disablePadding ref={setNodeRef} style={style} {...listeners} {...attributes} 
-       >
+      <ListItem disablePadding ref={setNodeRef} style={style} {...listeners} {...attributes} >
           <ListItemButton  >         
             <ListItemIcon>
               {icon}
@@ -102,9 +101,8 @@ const Draggable = ({ icon , text, id, label }) => {
 
 const FormSidebar:React.FC<SidebarItem> = () => {
   return (
-    <Box 
-    width="250px" 
-    overflowY="auto" 
+    <Box width="250px" // Set a width for the sidebar
+    overflowY="auto" // Enable vertical scrolling for the sidebar
     bgcolor="white"
     border="1px solid red"
     sx={{ height: '100%' }}  >

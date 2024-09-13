@@ -3,7 +3,7 @@ import React from 'react'
 
 const RightBar = () => {
   return (
-    <Box flex={1}  width="250px" 
+    <Box flex={1} bgcolor = "white" width="250px" 
     overflowY="auto" 
     bgcolor="white"
     border="1px solid red"

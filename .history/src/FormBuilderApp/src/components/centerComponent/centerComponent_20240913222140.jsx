@@ -8,6 +8,7 @@ const CenterComponent = () => {
   return (
     <Box flex={4} bgcolor={"white"} width="250px" 
     overflowY="auto" 
+    bgcolor="white"
     border="1px solid red"
     sx={{ height: '100%' }}  >
       <Stack direction={'column'} spacing={6}>

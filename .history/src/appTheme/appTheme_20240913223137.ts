@@ -67,7 +67,7 @@ const theme = createTheme({
         root: {
           borderRadius: 8,
           '&:hover': {
-            backgroundColor: blue[700], // Darker blue on hover
+            backgroundColor: grey[700], // Darker blue on hover
           },
         },
       },

@@ -85,8 +85,7 @@ const Draggable = ({ icon , text, id, label }) => {
 
   return (
   
-      <ListItem disablePadding ref={setNodeRef} style={style} {...listeners} {...attributes} 
-       >
+      <ListItem disablePadding ref={setNodeRef} style={style} {...listeners} {...attributes} >
           <ListItemButton  >         
             <ListItemIcon>
               {icon}
@@ -102,12 +101,7 @@ const Draggable = ({ icon , text, id, label }) => {
 
 const FormSidebar:React.FC<SidebarItem> = () => {
   return (
-    <Box 
-    width="250px" 
-    overflowY="auto" 
-    bgcolor="white"
-    border="1px solid red"
-    sx={{ height: '100%' }}  >
+    <Box flex={1} overflowY="auto" bgcolor = "white" border={"1px solid red"} height="calc(100vh - 60px)">
       <List>
       {sideBarItem?.map((item, idx) =>(
         <Draggable key={idx}  icon = {item.icon}  text  = {item.text} id={idx}  />
