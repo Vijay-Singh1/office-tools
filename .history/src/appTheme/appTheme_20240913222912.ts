@@ -38,7 +38,7 @@ const theme = createTheme({
       secondary: blue[800], // Dark blue text for secondary elements
     },
     action: {
-      hover: grey[200], // Light blue on hover
+      hover: blue[100], // Light blue on hover
       selected: blue[50], // Even lighter blue when an item is selected
       disabledBackground: blue[50], // Light blue background for disabled items
       disabled: grey[400], // Disabled text color
@@ -67,7 +67,7 @@ const theme = createTheme({
         root: {
           borderRadius: 8,
           '&:hover': {
-            backgroundColor: blue[700], // Darker blue on hover
+            backgroundColor: grey[700], // Darker blue on hover
           },
         },
       },

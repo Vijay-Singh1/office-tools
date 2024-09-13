@@ -76,7 +76,7 @@ const Draggable = ({ icon , text, id, label }) => {
   });
 
   const style = {
-    transform: `translate3d(${transform?.x}px, ${transform?.y}px, 0)`,
+    // transform: `translate3d(${transform?.x}px, ${transform?.y}px, 0)`,
     // padding: '8px',
     // border: '1px solid #ccc',
     marginBottom: '8px',
@@ -85,8 +85,10 @@ const Draggable = ({ icon , text, id, label }) => {
 
   return (
   
-      <ListItem disablePadding ref={setNodeRef} style={style} {...listeners} {...attributes} 
-       >
+      <ListItem disablePadding ref={setNodeRef} 
+      sx={{'&:hover': {
+            bgcolor: 'lightgrey',
+          }}} >
           <ListItemButton  >         
             <ListItemIcon>
               {icon}
