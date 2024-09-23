@@ -1,0 +1,29 @@
+
+import Box from '@mui/material/Box';
+import React from 'react'
+import { Stack } from '@mui/material';
+import FormSidebar from '../components/sidebar/Sidebar';
+import CenterComponent from '../components/centerComponent/CenterComponent';
+import RightBar from '../components/RightBar/RightBar';
+
+
+
+const CreateForm : React.FC = () => {
+  return (
+    <Box   flex ={1} sx={{
+      mb: 2,
+      height: "100%",
+      overflow: "hidden",
+      // overflowY: "scroll",
+     // justifyContent="flex-end" # DO NOT USE THIS WITH 'scroll'
+    }}  >
+      <Stack direction="row" spacing={4}  justifyContent={"space-between"} sx={{ height: '100%' }}  >
+      <FormSidebar/>
+      <CenterComponent props={{id : "1"}}/>
+      <RightBar/>
+</Stack>
+    </Box>
+  )
+}
+
+export default CreateForm
