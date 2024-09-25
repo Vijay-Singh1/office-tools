@@ -22,12 +22,12 @@ const renderedElement: RenderedElementProps[] = [
   { text: "File Upload", element: <TextField fullWidth  id="fullWidth" type = "file" /> },
   { text: "Paragraph", element: <TextField fullWidth  id="fullWidth" /> },
   { text: "Checkbox", element: <TextField fullWidth  id="fullWidth" type = "checkbox" /> },
-  { text: "Radio Button", element: <TextField fullWidth  id="fullWidth" type = "radio" /> },
+  { text: "Radio Button", element: <TextField fullWidth  id="fullWidth" /> },
   { text: "Header", element: <TextField fullWidth  id="fullWidth" /> },
   { text: "Phone Input", element: <TextField fullWidth  id="fullWidth" /> },
-  { text: "Dropdown", element: <TextField fullWidth  id="fullWidth" type ="select" /> },
+  { text: "Dropdown", element: <TextField fullWidth  id="fullWidth" /> },
   { text: "Page Break", element: <TextField fullWidth  id="fullWidth" /> },
-  { text: "Button", element: <TextField fullWidth  id="fullWidth" type = "button" /> },
+  { text: "Button", element: <TextField fullWidth  id="fullWidth" /> },
 ];
 
 

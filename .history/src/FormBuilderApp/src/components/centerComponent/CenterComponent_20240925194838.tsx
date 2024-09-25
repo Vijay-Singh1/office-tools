@@ -25,9 +25,9 @@ const renderedElement: RenderedElementProps[] = [
   { text: "Radio Button", element: <TextField fullWidth  id="fullWidth" type = "radio" /> },
   { text: "Header", element: <TextField fullWidth  id="fullWidth" /> },
   { text: "Phone Input", element: <TextField fullWidth  id="fullWidth" /> },
-  { text: "Dropdown", element: <TextField fullWidth  id="fullWidth" type ="select" /> },
+  { text: "Dropdown", element: <TextField fullWidth  id="fullWidth" /> },
   { text: "Page Break", element: <TextField fullWidth  id="fullWidth" /> },
-  { text: "Button", element: <TextField fullWidth  id="fullWidth" type = "button" /> },
+  { text: "Button", element: <TextField fullWidth  id="fullWidth" /> },
 ];
 
 
